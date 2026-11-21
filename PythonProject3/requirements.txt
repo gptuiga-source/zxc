@@ -1,0 +1,4 @@
+pyTelegramBotAPI
+Tortoise-ORM
+aiosqlite
+python-dotenv
