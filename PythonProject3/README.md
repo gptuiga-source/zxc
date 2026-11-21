@@ -21,4 +21,21 @@ An asynchronous Telegram chat bot built with `pyTelegramBotAPI` and Tortoise ORM
 
 The bot loads its token from `.env` with `python-dotenv`. Do not commit `.env`. The token previously embedded in the source was exposed; revoke it in BotFather and use a newly issued token.
 
-The SQLite database and environment files are excluded from Git.
+## Run with Docker
+
+1. Copy `.env.example` to `.env` and put your newly issued token in `TELEGRAM_BOT_TOKEN`.
+2. Build and start the bot:
+
+   ```powershell
+   docker compose up -d --build
+   ```
+
+3. View logs:
+
+   ```powershell
+   docker compose logs -f
+   ```
+
+Stop the bot with `docker compose down`. The named `bot-data` volume keeps the SQLite database between container rebuilds and restarts.
+
+The SQLite database and environment files are excluded from Git and from the Docker build context.

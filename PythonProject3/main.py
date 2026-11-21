@@ -53,7 +53,7 @@ async def broadcast_chat(message):
 
 async def main():
     await Tortoise.init(
-        db_url='sqlite://bot_database.db',
+        db_url=os.getenv('DATABASE_URL', 'sqlite://bot_database.db'),
         modules={'models': ['__main__']}
     )
     await Tortoise.generate_schemas()
